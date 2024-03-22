@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="Description" content="Enter your description here"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<title>Title</title>
+</head>
+<style>
+  h1{
+    text-align: center;
+  }
+</style>
+<body>
+
+<form action="">
+<h1>Crud In Java Script</h1>
+<div class="container">
+  <label for="">Enter Name</label><br>
+  <input type="text" placeholder="Enter Your Name" id="Uname" required class="form-control"><br>
+  <label for="">Enter Age</label><br>
+  <input type="text" placeholder="Enter Your Age" id="Uage" required class="form-control"><br>
+  <label for="">Enter Address</label><br>
+  <input type="text" placeholder="Enter Your Address" id="Uaddress" required class="form-control"><br>
+  <label for="">Enter Email Address</label><br>
+  <input type="text" placeholder="Enter Email Address" id="Uemail" required class="form-control"><br>
+  <input type="button" onclick="savedata()" class="btn btn-success" value="Add">
+
+</div>
+</form>
+    
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody id="userTableBody">
+
+  </tbody>
+</table>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/js/bootstrap.min.js"></script>
+</body>
+<script>
+  function savedata() {
+    var name = document.getElementById('Uname').value;
+    var age = document.getElementById('Uage').value;
+    var add = document.getElementById('Uaddress').value;
+    var email = document.getElementById('Uemail').value;
+    
+
+
+    var newflow = `
+    <tr>
+      <td>${name}</td>
+      <td>${age}</td>
+      <td>${add}</td>
+      <td>${email}</td>
+      <td><button class="btn btn-danger" onclick="del(this)"=>Delete</button></td>
+    </tr>
+    `;
+ 
+document.getElementById('userTableBody').innerHTML += newflow;
+
+
+     document.getElementById('Uname').value = "";
+     document.getElementById('Uage').value = "";
+     document.getElementById('Uaddress').value = "";
+     document.getElementById('Uemail').value = "";
+     document.getElementById('userId').value = "";
+
+     
+
+  }
+  function del(button) {
+    var row = button.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
+</script>
+</html>
